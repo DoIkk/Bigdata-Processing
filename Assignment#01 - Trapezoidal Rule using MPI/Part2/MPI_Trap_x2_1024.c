@@ -1,10 +1,9 @@
 #include <mpi.h>
 #include <stdio.h>
-#include <math.h>
 
 // Function to integrate
 double f(double x) {
-    return pow(x,4) - 3 * pow(x,2) + x + 4;
+    return x * x;
 }
 
 // Compute local trapezoidal approximation
@@ -23,7 +22,7 @@ double Trap(double left_endpt, double right_endpt, int trap_count, double base_l
 }
 
 int main(int argc, char** argv) {
-    int my_rank, comm_sz, n = 4096;
+    int my_rank, comm_sz, n = 1024;
     double a = 0.0, b = 2.0, h, local_a, local_b;
     int local_n;
     double local_int, total_int;
